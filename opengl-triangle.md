@@ -5,9 +5,12 @@ tags: [CG,OpenGL]
 abbrlink: opengl-triangle
 gitrep: opengl-note
 ---
+当你画出三角形,你已经知道如下知识:OpenGL api,OpenGL缓冲区,glsl shader语言,渲染循环,以及窗口事件
+
 [Blog Links: https://blog.ours1984.top/posts/opengl-triangle](https://blog.ours1984.top/posts/opengl-triangle)
 
-理解OpenGL基本概念,熟悉最简单的环境搭建,使用最基础的shader,画出一个三角形
+本文手把手带领大家搭建OpenGL环境,建立工程,画出一个三角形.
 <!--more-->
 
-## 概念理解
+## 环境搭建
+
