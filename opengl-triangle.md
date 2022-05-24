@@ -1,8 +1,6 @@
 ---
 title: '从零开始画三角形(OpenGL)'
 date: '2021/7/25 22:46:25'
-updated: '2021/7/25 20:46:25'
-mathjax: true 
 tags: [CG,OpenGL]
 abbrlink: opengl-triangle
 gitrep: opengl-note
