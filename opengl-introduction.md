@@ -1,6 +1,6 @@
 ---
 title: 'OpenGL的前世今生'
-date: '2021/7/21 22:46:25'
+date: '2021/7/23 22:46:25'
 tags: [CG,OpenGL]
 abbrlink: opengl-introduction
 gitrep: opengl-note
@@ -38,7 +38,17 @@ OpenGL每个新版本中引入的功能，特别是ARB和EXT类型的扩展，�
 
 ## 书籍
 
-OpenGL普及的部分原因是其高质量的官方文件。OpenGL架构评审委员会随规范一同发布了一系列包含API变化更新的手册。这些手册因其封面颜色而众所周知。
+所有版本的OpenGL规范文档都被公开的寄存在Khronos那里。如果你想深入到OpenGL的细节（只关心函数功能的描述而不是函数的实现），这是个很好的选择。如果你想知道每个函数具体的运作方式，这个规范也是一个很棒的参考。
+
+有兴趣的读者可以去阅读[规范文档](<https://www.khronos.org/registry/OpenGL/specs/gl/>),这里面有四个方面的文档
+
+glspec说明了OpenGL api的规范
+
+glu对辅助函数提供了说明,包括mipmapping、矩阵操作、多边形镶嵌、二次曲面、NURBS 和错误处理
+
+glx说明了X 窗口系统的 OpenGL 扩展
+
+glslangspec说明了glsl语言规范
 
 ### 红宝书
 
@@ -97,27 +107,46 @@ GLU 最后一次更新规格要求是在 1998 年，对已弃用的 OpenGL 特�
 
 ### Context是什么
 
-OpenGL自身是一个巨大的状态机(State Machine)：一系列的变量描述OpenGL此刻应当如何运行。OpenGL的状态通常被称为OpenGL上下文(Context).
+OpenGL自身是一个巨大的状态机(State Machine)：一系列的变量描述OpenGL此刻应当如何运行。OpenGL的状态通常被称为OpenGL上下文(Context)。我们通常使用如下途径去更改OpenGL状态：设置选项，操作缓冲。最后，我们使用当前OpenGL上下文来渲染。
 
-我们通常使用如下途径去更改OpenGL状态：
+假设当我们想告诉OpenGL去画线段而不是三角形的时候，我们通过改变一些上下文变量来改变OpenGL状态，从而告诉OpenGL如何去绘图。一旦我们改变了OpenGL的状态为绘制线段，下一个绘制命令就会画出线段而不是三角形。
 
-- 设置选项，操作缓冲。最后，我们使用当前OpenGL上下文来渲染。
-- 假设当我们想告诉OpenGL去画线段而不是三角形的时候，我们通过改变一些上下文变量来改变OpenGL状态，从而告诉OpenGL如何去绘图。
-- 一旦我们改变了OpenGL的状态为绘制线段，下一个绘制命令就会画出线段而不是三角形。
-
-当使用OpenGL的时候，我们会遇到一些状态设置函数(State-changing Function)，这类函数将会改变上下文。以及状态应用函数(State-using Function)，这类函数会根据当前OpenGL的状态执行一些操作。
-
-只要我们记住OpenGL本质上是个大状态机，就能更容易理解它的大部分特性。
+当使用OpenGL的时候，我们会遇到一些状态设置函数(State-changing Function)，这类函数将会改变上下文。以及状态使用函数(State-using Function)，这类函数会根据当前OpenGL的状态执行一些操作。只要你记住OpenGL本质上是个大状态机，就能更容易理解它的大部分特性。
 
 ### Context和窗口创建
 
 在我们画出出色的效果之前，首先要做的就是创建一个OpenGL上下文(Context)和一个用于显示的窗口。然而，这些操作在每个系统上都是不一样的，OpenGL有目的地从这些操作抽象(Abstract)出去。我们不得不自己处理创建窗口，定义OpenGL上下文以及处理用户输入
 
-OpenGL Context 创建过程相当复杂，在不同的操作系统上也需要不同的做法。因此很多游戏开发和用户界面库都提供了自动创建 OpenGL 上下文的功能，其中包括SDL、Allegro、SFML、FLTK、Qt等。也有一些库是专门用来创建 OpenGL 窗口的，其中最早的便是GLUT，后被freeglut取代，比较新的也有GLFW可以使用。
+在OpenGL中一个对象是指一些选项的集合，它代表OpenGL状态的一个子集。比如，我们可以用一个对象来代表绘图窗口的设置，之后我们就可以设置它的大小、支持的颜色位数等等。可以把对象看做一个C风格的结构体(Struct)：
 
-这些是对操作系统的封装,使得我们把操作系统透明化,只需要知道有context和窗口就行
+```c
+// OpenGL的状态
+struct OpenGL_Context {
+    ...
+    object* object_Window_Target;
+    ...     
+};
+
+// 创建对象
+unsigned int objectId = 0;
+glGenObject(1, &objectId);
+// 绑定对象至上下文
+glBindObject(GL_WINDOW_TARGET, objectId);
+// 设置当前绑定到 GL_WINDOW_TARGET 的对象的一些选项
+glSetObjectOption(GL_WINDOW_TARGET, GL_OPTION_WINDOW_WIDTH, 800);
+glSetObjectOption(GL_WINDOW_TARGET, GL_OPTION_WINDOW_HEIGHT, 600);
+// 将上下文对象设回默认
+glBindObject(GL_WINDOW_TARGET, 0);
+```
+
+这一小段代码展现了你以后使用OpenGL时常见的工作流。我们首先创建一个对象，然后用一个id保存它的引用（实际数据被储存在后台）。然后我们将对象绑定至上下文的目标位置（例子中窗口对象目标的位置被定义成GL_WINDOW_TARGET）。接下来我们设置窗口的选项。最后我们将目标位置的对象id设回0，解绑这个对象。设置的选项将被保存在objectId所引用的对象中，一旦我们重新绑定这个对象到GL_WINDOW_TARGET位置，这些选项就会重新生效。
+
+使用对象的一个好处是在程序中，我们不止可以定义一个对象，并设置它们的选项，每个对象都可以是不同的设置。在我们执行一个使用OpenGL状态的操作的时候，只需要绑定含有需要的设置的对象即可。比如说我们有一些作为3D模型数据（一栋房子或一个人物）的容器对象，在我们想绘制其中任何一个模型的时候，只需绑定一个包含对应模型数据的对象就可以了（当然，我们需要先创建并设置对象的选项）。拥有数个这样的对象允许我们指定多个模型，在想画其中任何一个的时候，直接将对应的对象绑定上去，便不需要再重复设置选项了。
 
 ## 窗口扩展包
+
+OpenGL Context 创建过程相当复杂，在不同的操作系统上也需要不同的做法。因此很多游戏开发和用户界面库都提供了自动创建 OpenGL 上下文的功能，其中包括SDL、Allegro、SFML、FLTK、Qt等。也有一些库是专门用来创建 OpenGL 窗口的，其中最早的便是GLUT，后被freeglut取代，比较新的也有GLFW可以使用。
+这些是对操作系统的封装,使得我们把操作系统透明化,只需要知道有context和窗口就行
 
 ### 最基本的窗口包
 
