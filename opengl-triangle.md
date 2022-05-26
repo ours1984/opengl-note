@@ -22,7 +22,7 @@ gitrep: opengl-note
 
 {% note warning %}
 当使用新版本的OpenGL特性时，只有新一代的显卡能够支持你的应用程序。这也是为什么大多数开发者基于较低版本的OpenGL编写程序，并只提供选项启用新版本的特性
-{% endnot %}
+{% endnote %}
 
 核心模式涉及到下图这么多概念
 
