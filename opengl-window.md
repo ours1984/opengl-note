@@ -11,6 +11,7 @@ gitrep: opengl-note
 
 [博客链接: https://blog.ours1984.top/posts/opengl-window](https://blog.ours1984.top/posts/opengl-window)
 
+[配套项目地址]<https://github.com/xiaoqide/opengl-note-code>
 <!--more-->
 
 ## GLFW安装
@@ -29,7 +30,7 @@ vscode可以安装cmake扩展,我们的ide使用vscode,编译器使用mingw环�
 
 也不叫安装.还记得我们之前说的GLEW吗,glad提供了一个网页在线生成OpenGL api地址查找函数服务,我们可以动态配置自己的OpenGL版本以及扩展需求
 
-因为OpenGL只是一个标准/规范，具体的实现是由驱动开发商针对特定显卡实现的。由于OpenGL驱动版本众多，它大多数函数的位置都无法在编译时确定下来，需要在运行时查询。所以任务就落在了开发者身上，开发者需要在运行时获取函数地址并将其保存在一个函数指针中供以后使用。取得地址的方法因平台而异，在Windows上会是类似这样：
+因为OpenGL只是一个标准/规范，具体的实现是由驱动开发商针对特定显卡 实现的。由于OpenGL驱动版本众多，它大多数函数的位置都无法在编译时确定下来，需要在运行时查询。所以任务就落在了开发者身上，开发者需要在运行时获取函数地址并将其保存在一个函数指针中供以后使用。取得地址的方法因平台而异，在Windows上会是类似这样：
 
 ```c
 // 定义函数原型
@@ -51,94 +52,52 @@ GLAD现在应该提供给你了一个zip压缩文件，包含两个头文件目�
 
 ## CMakeList.txt编写
 
-我们要写一个cmakelist,把我们编译好的glfw和glad以及OpenGL依赖配置好.
+我们要写一个cmakelist,把我们编译好的glfw和glad以及OpenGL依赖配置好.同时引入googletest做单元测试
 
 ```cmake
 cmake_minimum_required(VERSION 3.0.0)
 project(opengl-note VERSION 0.1.0)
 
-include(CTest)
-enable_testing()
+set(CMAKE_CXX_STANDARD 11)
 
-set (UserInc "include")
-set (UserLib "lib")
-set(GLADsrc "lib/glad.c")
+set(nodeOutDir ${PROJECT_SOURCE_DIR}/bin)
+set(gladIncDir ${PROJECT_SOURCE_DIR}/glad)
+set(gtestIncDir ${PROJECT_SOURCE_DIR}/googletest/googletest/include)
+set(glfwIncDir ${PROJECT_SOURCE_DIR}/glfw/include)
 
-include_directories(${UserInc})
-link_directories(${UserLib})
+include_directories(${gladIncDir})
+include_directories(${glfwIncDir})
+include_directories(${gtestIncDir})
+link_directories(${nodeOutDir})
 
-add_executable(opengl-note main.cpp ${GLADsrc})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${nodeOutDir})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${nodeOutDir})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${nodeOutDir})
+set(LIBRARY_OUTPUT_PATH ${nodeOutDir})
+
+add_subdirectory(googletest)
+add_subdirectory(glfw)
+add_subdirectory(glad)
 
 set (dependLib
-    -lglfw3
+    glfw
+    glad
+    gtest
     -lopengl32
 )
-target_link_libraries(opengl-note ${dependLib})
-
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
+add_subdirectory(src)
 
 ```
 
-其中lib里的glfw库,如果你不是mingw环境编译的,那自己替换下吧
+我们采用add_subdirectory的方式生成子项目glad,glfw,gtest,同时把他们作为项目依赖,附加给src里面的单元测试
+
+在子目录里分别写好CMakeList.txt,就可以编译了
+
+关于cmake的使用,尤其是子项目的编写,可以参考博文[CMake从入门到入门](https://blog.ours1984.top/posts/cmake)
 
 ## 你好窗口
 
-首先给出main文件
-
-```c++
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
-{
-    glViewport(0, 0, width, height);
-}
-
-void processInput(GLFWwindow *window)
-{
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-}
-
-int main()
-{
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-
-    GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
-    if (window == NULL)
-    {
-        std::cout << "Failed to create GLFW window" << std::endl;
-        glfwTerminate();
-        return -1;
-    }
-    glfwMakeContextCurrent(window);
-
-    glViewport(0, 0, 800, 600);
-
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
-    while(!glfwWindowShouldClose(window))
-    {
-        processInput(window);
-
-        // 渲染指令
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
-
-    glfwTerminate();
-    return 0;
-}
-```
+首先给出源码文件,参考[hellow-window](https://github.com/xiaoqide/opengl-note-code/blob/main/src/test_window.cpp).这里知识代码说明,单独运行不起来的.你需要下载整个项目才能跑起来
 
 首先，我们在main函数中调用glfwInit函数来初始化GLFW，然后我们可以使用glfwWindowHint函数来配置GLFW。
 
@@ -146,7 +105,9 @@ glfwWindowHint函数的第一个参数代表选项的名称，我们可以从很
 
 接下来我们创建一个窗口对象，这个窗口对象存放了所有和窗口相关的数据，而且会被GLFW的其他函数频繁地用到。glfwCreateWindow函数需要窗口的宽和高作为它的前两个参数。第三个参数表示这个窗口的名称（标题），这里我们使用"LearnOpenGL"，当然你也可以使用你喜欢的名称。最后两个参数我们暂时忽略。这个函数将会返回一个GLFWwindow对象，我们会在其它的GLFW操作中使用到。创建完窗口我们就可以通知GLFW将我们窗口的上下文设置为当前线程的主上下文了。
 
-## 视口
+然后我们把窗口设置为当前context,再调用gladLoadGLLoader初始化OpenGL api地址.注意,需要有当前context才能初始化成功
+
+## 你好视口
 
 在我们开始渲染之前还有一件重要的事情要做，我们必须告诉OpenGL渲染窗口的尺寸大小，即视口(Viewport)，这样OpenGL才只能知道怎样根据窗口大小显示数据和坐标。我们可以通过调用glViewport函数来设置窗口的维度(Dimension)。
 
@@ -158,7 +119,7 @@ glfwWindowHint函数的第一个参数代表选项的名称，我们可以从很
 
 我们还可以将我们的函数注册到其它很多的回调函数中。比如说，我们可以创建一个回调函数来处理手柄输入变化，处理错误消息等。我们会在创建窗口之后，渲染循环初始化之前注册这些回调函数。
 
-## 渲染循环
+## 你好循环
 
 我们可不希望只绘制一个图像之后我们的应用程序就立即退出并关闭窗口。我们希望程序在我们主动关闭它之前不断绘制图像并能够接受用户输入。因此，我们需要在程序中添加一个while循环，我们可以把它称之为渲染循环(Render Loop)，它能在我们让GLFW退出前一直保持运行。我们用一个死循环来不停地渲染.退出条件是窗口被用户关闭.
 
@@ -173,7 +134,7 @@ glfwSwapBuffers函数会交换颜色缓冲（它是一个储存着GLFW窗口每�
 
 {% endnote %}
 
-## 输入
+## 你好输入
 
 我们同样也希望能够在GLFW中实现一些输入控制，这可以通过使用GLFW的几个输入函数来完成。我们将会使用GLFW的glfwGetKey函数，它需要一个窗口以及一个按键作为输入。这个函数将会返回这个按键是否正在被按下。我们将创建一个processInput函数来让所有的输入代码保持整洁。
 
@@ -181,4 +142,4 @@ glfwSwapBuffers函数会交换颜色缓冲（它是一个储存着GLFW窗口每�
 
 我们在渲染循环的每一个迭代中调用processInput.再做自己的渲染操作.现在你啥都不会,所以我们调用api来清屏吧,设置屏幕颜色
 
-如果你看见了一个非常无聊的窗口，那么就对了！如果你没得到正确的结果，或者你不知道怎么把所有东西放到一起，可以去github上下载源码<https://github.com/xiaoqide/opengl-note-code>
+如果你看见了一个非常无聊的窗口，那么就对了！如果你没得到正确的结果，或者你不知道怎么把所有东西放到一起，可以去github上下载配套项目<https://github.com/xiaoqide/opengl-note-code>

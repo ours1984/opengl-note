@@ -25,6 +25,7 @@ OpenGL入门,OpenGL应用,纹理的应用,webgl的学习,移动端OpenGL适配
 ## OpenGL入门
 
 - [Introduction(github)](opengl-introduction.md)：[OpenGL的前世今生(blog)](https://blog.ours1984.top/posts/opengl-introduction)
+- [Window(github)](opengl-window.md)：[从零开始画窗口(blog)](https://blog.ours1984.top/posts/opengl-window)
 - [Triangle(github)](opengl-triangle.md)：[从零开始画三角形(blog)](https://blog.ours1984.top/posts/opengl-triangle)
 
 ### OpenGL应用
