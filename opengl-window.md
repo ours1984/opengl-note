@@ -18,7 +18,7 @@ gitrep: opengl-note
 
 GLFW可以从它官方网站的[下载页](http://www.glfw.org/download.html)上获取。GLFW已提供为Visual Studio（2012到2019都有）预编译好的二进制版本和相应的头文件，但是为了完整性我们将从编译源代码开始。所以我们需要下载源代码包。
 
-也可以直接从github上拉取源码<https://github.com/glfw/glfw.git>.笔者[代码仓库](https://github.com/xiaoqide/opengl-note-code.git)使用github拉取,连接不畅的小伙伴自己想办法拉下来放在glfw文件夹下
+也可以直接从笔者github上拉取源码<https://github.com/xiaoqide/glfw.git>.笔者[本项目代码仓库](https://github.com/xiaoqide/opengl-note-code.git)直接配置了glfw的子仓库,可以一并拉下来
 
 从源代码编译库可以保证生成的库完全适合你的操作系统和CPU的，而预编译的二进制文件则并非总是提供（有时候，即便提供了预编译的二进制文件，也可能不适用于您的系统）。开放源代码所产生问题在于：并不是每个人都用相同的IDE或者构建系统来搞开发，因而提供的项目/解决方案文件可能和一些人的IDE不兼容。所以人们必须使用给定的.c/.cpp和.h/.hpp文件来自己建立项目/解决方案，这是一项很枯燥的工作。但因此也诞生了一个叫做CMake的工具。
 
