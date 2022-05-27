@@ -1,5 +1,5 @@
 ---
-title: 'shader从入门到入门'
+title: '从零开始学shader'
 date: '2021/8/3 22:46:25'
 tags: [CG,OpenGL,shader]
 abbrlink: opengl-shader
