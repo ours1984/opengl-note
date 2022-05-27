@@ -28,7 +28,7 @@ OpenGL入门,OpenGL应用,纹理的应用,webgl的学习,移动端OpenGL适配
 - [Window(github)](opengl-window.md)：[从零开始画窗口(blog)](https://blog.ours1984.top/posts/opengl-window)
 - [Triangle(github)](opengl-triangle.md)：[从零开始画三角形(blog)](https://blog.ours1984.top/posts/opengl-triangle)
 - [shader(github)](opengl-shader.md)：[从零开始学shader(blog)](https://blog.ours1984.top/posts/opengl-shader)
-- 
+
 ### OpenGL应用
 
 - [深度冲突以及解决方法(github)](depth-conflict.md)：[深度冲突以及解决方法(blog)](https://blog.ours1984.top/posts/depth-conflict)

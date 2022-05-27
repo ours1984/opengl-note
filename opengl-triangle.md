@@ -7,9 +7,8 @@ gitrep: opengl-note
 ---
 当你画出三角形,你已经知道如下知识:OpenGL api的调用,OpenGL缓冲区的设置,glsl shader的编译,OpenGL 渲染管线的原理.本文手把手带领大家画出一个三角形.
 
-[博客链接](https://blog.ours1984.top/posts/opengl-window)
-[配套项目地址](https://github.com/xiaoqide/opengl-note-code)
-
+博客链接:<https://blog.ours1984.top/posts/opengl-triangle>
+配套项目地址:<https://github.com/xiaoqide/opengl-note-code>
 <!--more-->
 
 ## 现代OpenGL

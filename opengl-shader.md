@@ -7,8 +7,8 @@ gitrep: opengl-note
 ---
 着色器(Shader)是运行在GPU上的小程序。这些小程序为图形渲染管线的某个特定部分而运行。从基本意义上来说，着色器只是一种把输入转化为输出的程序。着色器也是一种非常独立的程序，因为它们之间不能相互通信；它们之间唯一的沟通只有通过输入和输出。现在我们会用一种更加广泛的形式详细解释着色器，特别是OpenGL着色器语言(GLSL)。针对gpu的并行特性,对语法里的if判断,我们要谨慎对待,稍有不慎,就会拾取并行特性导致效率下降
 
-[博客链接](https://blog.ours1984.top/posts/opengl-shader)
-[配套项目地址](https://github.com/xiaoqide/opengl-note-code)
+博客链接:<https://blog.ours1984.top/posts/opengl-shader>
+配套项目地址:<https://github.com/xiaoqide/opengl-note-code>
 
 <!--more-->
 
