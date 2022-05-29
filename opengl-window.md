@@ -9,8 +9,6 @@ gitrep: opengl-note
 
 虽然我们的各种窗口库可以分简单地弄出窗口来,但我们必须搞明白这个东西,不能云里雾里,否则今后的学习你肯定会出现各种问题
 
-博客链接:<https://blog.ours1984.top/posts/opengl-window>
-配套项目地址:<https://github.com/xiaoqide/opengl-note-code>
 <!--more-->
 
 ## GLFW安装

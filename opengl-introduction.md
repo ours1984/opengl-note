@@ -8,7 +8,6 @@ gitrep: opengl-note
 
 本文介绍OpenGL的由来,它的设计思想,以及OpenGL的上下文和窗口的概念.最后介绍其他的图形api和显示引擎,分析比较了他们的异同.
 
-博客链接<https://blog.ours1984.top/posts/opengl-introduction>
 <!--more-->
 
 ## 简介
