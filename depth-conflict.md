@@ -6,8 +6,6 @@ tags: [CG,OpenGL]
 abbrlink: depth-conflict
 gitrep: opengl-note
 ---
-[Blog Links: https://blog.ours1984.top/posts/depth-conflict](https://blog.ours1984.top/posts/depth-conflict)
-
 深度冲突会导致画面重生成时闪烁,这会让测试人员一直揪着你不放.我们从头来理一理这个关系
 <!--more-->
 

@@ -6,9 +6,9 @@ abbrlink: opengl-note
 gitrep: opengl-note
 ---
 
-## 说明
+OpenGL学习笔记,计划会涉及到多个方面,包括但不限于以下方面:OpenGL入门,OpenGL应用,纹理的应用,webgl的学习,移动端OpenGL适配等等.
 
-OpenGL学习笔记,计划会涉及到多个方面,包括但不限于以下方面:OpenGL入门,OpenGL应用,纹理的应用,webgl的学习,移动端OpenGL适配等等.本笔记已同步Github
+本笔记已同步Github
 
 [![games101](https://github-readme-stats.vercel.app/api/pin/?username=xiaoqide&repo=opengl-note&show_owner)](https://github.com/xiaoqide/opengl-note)
 
@@ -27,8 +27,8 @@ OpenGL学习笔记,计划会涉及到多个方面,包括但不限于以下方面
 - [texture(github)](opengl-texture.md)：[从零开始学纹理(blog)](https://blog.ours1984.top/posts/opengl-texture)
 - [MVP(github)](opengl-camera.md)：[从零开始学摄像机(blog)](https://blog.ours1984.top/posts/opengl-camera)
 
-### OpenGL应用
+## OpenGL应用
 
 - [深度冲突以及解决方法(github)](depth-conflict.md)：[深度冲突以及解决方法(blog)](https://blog.ours1984.top/posts/depth-conflict)
 
-### 渲染引擎
+## 渲染引擎
