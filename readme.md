@@ -24,8 +24,8 @@ OpenGL学习笔记,计划会涉及到多个方面,包括但不限于以下方面
 - [Window(github)](opengl-window.md)：[从零开始画窗口(blog)](https://blog.ours1984.top/posts/opengl-window)
 - [Triangle(github)](opengl-triangle.md)：[从零开始画三角形(blog)](https://blog.ours1984.top/posts/opengl-triangle)
 - [shader(github)](opengl-shader.md)：[从零开始学着色器(blog)](https://blog.ours1984.top/posts/opengl-shader)
-- [texture(github)](opengl-texture.md)：[从零开始学纹理(blog)](https://blog.ours1984.top/posts/opengl-texture)
-- [MVP(github)](opengl-camera.md)：[从零开始学摄像机(blog)](https://blog.ours1984.top/posts/opengl-camera)
+- [Texture(github)](opengl-texture.md)：[从零开始学纹理(blog)](https://blog.ours1984.top/posts/opengl-texture)
+- [Camera(github)](opengl-camera.md)：[从零开始学摄像机(blog)](https://blog.ours1984.top/posts/opengl-camera)
 
 ## OpenGL应用
 

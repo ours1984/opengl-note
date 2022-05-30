@@ -4,6 +4,7 @@ date: '2021/8/9 22:46:25'
 tags: [CG,OpenGL,camera]
 abbrlink: opengl-camera
 gitrep: opengl-note
+mathjax: true
 ---
 从现在开始,我们就要绘制大量三角形了.这里我们引入一种更高效的条带绘制方式.
 
