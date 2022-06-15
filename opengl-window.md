@@ -15,7 +15,7 @@ gitrep: opengl-note
 
 GLFW可以从它官方网站的[下载页](http://www.glfw.org/download.html)上获取。GLFW已提供为Visual Studio（2012到2019都有）预编译好的二进制版本和相应的头文件，但是为了完整性我们将从编译源代码开始。所以我们需要下载源代码包。
 
-也可以直接从笔者github上拉取源码<https://github.com/xiaoqide/glfw.git>.笔者[本项目代码仓库](https://github.com/xiaoqide/opengl-note-code.git)直接配置了glfw的子仓库,可以一并拉下来
+也可以直接从笔者github上拉取源码<https://github.com/xiaoqide/glfw.git>
 
 从源代码编译库可以保证生成的库完全适合你的操作系统和CPU的，而预编译的二进制文件则并非总是提供（有时候，即便提供了预编译的二进制文件，也可能不适用于您的系统）。开放源代码所产生问题在于：并不是每个人都用相同的IDE或者构建系统来搞开发，因而提供的项目/解决方案文件可能和一些人的IDE不兼容。所以人们必须使用给定的.c/.cpp和.h/.hpp文件来自己建立项目/解决方案，这是一项很枯燥的工作。但因此也诞生了一个叫做CMake的工具。
 
@@ -94,7 +94,7 @@ add_subdirectory(src)
 
 ## 你好窗口
 
-首先给出源码文件,参考[hellow-window](https://github.com/xiaoqide/opengl-note-code/blob/main/src/test_window.cpp).这里知识代码说明,单独运行不起来的.你需要下载整个项目才能跑起来
+首先给出源码文件,参考[hellow-window](https://github.com/xiaoqide/note-code/blob/main/opengl-note/test_window.cpp).这里知识代码说明,单独运行不起来的.你需要下载整个项目才能跑起来
 
 首先，我们在main函数中调用glfwInit函数来初始化GLFW，然后我们可以使用glfwWindowHint函数来配置GLFW。
 
@@ -139,4 +139,4 @@ glfwSwapBuffers函数会交换颜色缓冲（它是一个储存着GLFW窗口每�
 
 我们在渲染循环的每一个迭代中调用processInput.再做自己的渲染操作.现在你啥都不会,所以我们调用api来清屏吧,设置屏幕颜色
 
-如果你看见了一个非常无聊的窗口，那么就对了！如果你没得到正确的结果，或者你不知道怎么把所有东西放到一起，可以去github上下载配套项目<https://github.com/xiaoqide/opengl-note-code>
+如果你看见了一个非常无聊的窗口，那么就对了！如果你没得到正确的结果，或者你不知道怎么把所有东西放到一起，可以去github上下载配套项目<https://github.com/xiaoqide/note-code>

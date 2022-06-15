@@ -10,7 +10,7 @@ mathjax: true
 
 然后才是本节核心camara.这里不会对其中的原理和细节做推导,直接给出结论.
 
-如果感兴趣,可以看这篇[博文](https://blog.ours1984.top/posts/games101-04)
+如果感兴趣,可以看这篇[博文](https://blog.ours1984.top/posts/games101-04/)
 
 这里着重阐述camara在OpenGL中的FPS应用场景,怎么使用它来构造我们的camera.
 
@@ -269,7 +269,7 @@ void main()
 }
 ```
 
-如果你在哪儿卡住了，可以到[这里]((https://github.com/xiaoqide/opengl-note-code/blob/main/src/test_mvp.cpp))查看源码。
+如果你在哪儿卡住了，可以到[这里]((https://github.com/xiaoqide/note-code/blob/main/src/test_mvp.cpp))查看源码。
 
 ## 摄像机
 
@@ -482,4 +482,4 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 
 不多说,看代码
 
-如果你在哪儿卡住了，可以到[这里]((https://github.com/xiaoqide/opengl-note-code/blob/main/src/test_camera.cpp))查看源码。
+如果你在哪儿卡住了，可以到[这里]((https://github.com/xiaoqide/note-code/blob/main/opengl-note/test_camera.cpp))查看源码。

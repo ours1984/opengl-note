@@ -14,21 +14,21 @@ OpenGL学习笔记,计划会涉及到多个方面,包括但不限于以下方面
 
 涉及到的代码演示,以及其他相关资料也已经同步Github
 
-[![games101](https://github-readme-stats.vercel.app/api/pin/?username=xiaoqide&repo=opengl-note-code&show_owner)](https://github.com/xiaoqide/opengl-note-code)
+[![games101](https://github-readme-stats.vercel.app/api/pin/?username=xiaoqide&repo=note-code&show_owner)](https://github.com/xiaoqide/note-code)
 
 <!--more-->
 
 ## OpenGL入门
 
-- [Introduction(github)](opengl-introduction.md)：[OpenGL的前世今生(blog)](https://blog.ours1984.top/posts/opengl-introduction)
-- [Window(github)](opengl-window.md)：[从零开始画窗口(blog)](https://blog.ours1984.top/posts/opengl-window)
-- [Triangle(github)](opengl-triangle.md)：[从零开始画三角形(blog)](https://blog.ours1984.top/posts/opengl-triangle)
-- [shader(github)](opengl-shader.md)：[从零开始学着色器(blog)](https://blog.ours1984.top/posts/opengl-shader)
-- [Texture(github)](opengl-texture.md)：[从零开始学纹理(blog)](https://blog.ours1984.top/posts/opengl-texture)
-- [Camera(github)](opengl-camera.md)：[从零开始学摄像机(blog)](https://blog.ours1984.top/posts/opengl-camera)
+- [Introduction(github)](opengl-introduction.md)：[OpenGL的前世今生(blog)](https://blog.ours1984.top/posts/opengl-introduction/)
+- [Window(github)](opengl-window.md)：[从零开始画窗口(blog)](https://blog.ours1984.top/posts/opengl-window/)
+- [Triangle(github)](opengl-triangle.md)：[从零开始画三角形(blog)](https://blog.ours1984.top/posts/opengl-triangle/)
+- [shader(github)](opengl-shader.md)：[从零开始学着色器(blog)](https://blog.ours1984.top/posts/opengl-shader/)
+- [Texture(github)](opengl-texture.md)：[从零开始学纹理(blog)](https://blog.ours1984.top/posts/opengl-texture/)
+- [Camera(github)](opengl-camera.md)：[从零开始学摄像机(blog)](https://blog.ours1984.top/posts/opengl-camera/)
 
 ## OpenGL应用
 
-- [深度冲突以及解决方法(github)](depth-conflict.md)：[深度冲突以及解决方法(blog)](https://blog.ours1984.top/posts/depth-conflict)
+- [深度冲突以及解决方法(github)](depth-conflict.md)：[深度冲突以及解决方法(blog)](https://blog.ours1984.top/posts/depth-conflict/)
 
 ## 渲染引擎

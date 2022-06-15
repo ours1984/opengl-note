@@ -264,4 +264,4 @@ OpenGL要求y轴0.0坐标是在图片的底部的，但是图片的y轴0.0坐标
 
 
 
-具体看代码就好了.如果你在哪儿卡住了，可以到[这里]((https://github.com/xiaoqide/opengl-note-code/blob/main/src/test_shader.cpp))查看源码。
+具体看代码就好了.如果你在哪儿卡住了，可以到[这里]((https://github.com/xiaoqide/note-code/blob/main/opengl-note/test_shader.cpp))查看源码。
