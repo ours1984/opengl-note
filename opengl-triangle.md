@@ -351,7 +351,7 @@ glDrawArrays函数第一个参数是我们打算绘制的OpenGL图元的类型�
 
 ![20220526163903](https://pic.ours1984.top/img/20220526163903.png)
 
-完整的程序源码可以在[这里](https://github.com/xiaoqide/note-code/blob/main/opengl-note/test_triangle.cpp)找到。
+完整的程序源码可以在[这里](https://github.com/ours1984/note-code/blob/main/opengl-note/test_triangle.cpp)找到。
 
 如果你的输出和这个看起来不一样，你可能做错了什么。去查看一下源码，检查你是否遗漏了什么东西，或者你也可以在评论区提问。
 
@@ -449,6 +449,6 @@ glBindVertexArray(0);
 
 {% endnote %}
 
-如果你遇到任何错误，回头检查代码，看看是否遗漏了什么。同时，你可以在[这里](https://github.com/xiaoqide/note-code/blob/main/opengl-note/test_triangle.cpp)找到全部源码，你也可以在评论区自由提问。
+如果你遇到任何错误，回头检查代码，看看是否遗漏了什么。同时，你可以在[这里](https://github.com/ours1984/note-code/blob/main/opengl-note/test_triangle.cpp)找到全部源码，你也可以在评论区自由提问。
 
 如果你像我这样成功绘制出了这个三角形或矩形，那么恭喜你，你成功地通过了现代OpenGL最难部分之一：绘制你自己的第一个三角形。这部分很难，因为在可以绘制第一个三角形之前你需要了解很多知识。幸运的是我们现在已经越过了这个障碍，接下来的教程会比较容易理解一些。

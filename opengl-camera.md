@@ -4,7 +4,7 @@ date: '2021/8/9 22:46:25'
 tags: [CG,OpenGL,camera]
 abbrlink: opengl-camera
 gitrep: opengl-note
-mathjax: true
+
 ---
 从现在开始,我们就要绘制大量三角形了.这里我们引入一种更高效的条带绘制方式.
 
@@ -269,7 +269,7 @@ void main()
 }
 ```
 
-如果你在哪儿卡住了，可以到[这里]((https://github.com/xiaoqide/note-code/blob/main/src/test_mvp.cpp))查看源码。
+如果你在哪儿卡住了，可以到[这里]((https://github.com/ours1984/note-code/blob/main/src/test_mvp.cpp))查看源码。
 
 ## 摄像机
 
@@ -482,4 +482,4 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 
 不多说,看代码
 
-如果你在哪儿卡住了，可以到[这里]((https://github.com/xiaoqide/note-code/blob/main/opengl-note/test_camera.cpp))查看源码。
+如果你在哪儿卡住了，可以到[这里]((https://github.com/ours1984/note-code/blob/main/opengl-note/test_camera.cpp))查看源码。

@@ -215,7 +215,7 @@ while(!glfwWindowShouldClose(window))
 }
 ```
 
-如果你在哪儿卡住了，可以到[这里]((https://github.com/xiaoqide/note-code/blob/main/opengl-note/test_shader.cpp))查看源码。
+如果你在哪儿卡住了，可以到[这里]((https://github.com/ours1984/note-code/blob/main/opengl-note/test_shader.cpp))查看源码。
 
 这里的代码对之前代码是一次非常直接的修改。这次，我们在每次迭代绘制三角形前先更新uniform值。如果你正确更新了uniform，你会看到你的三角形逐渐由绿变黑再变回绿色。可以看到，uniform对于设置一个在渲染迭代中会改变的属性是一个非常有用的工具，它也是一个在程序和着色器间数据交互的很好工具，但假如我们打算为每个顶点设置一个颜色的时候该怎么办？
 
@@ -283,7 +283,7 @@ glVertexAttribPointer函数的前几个参数比较明了。这次我们配置�
 这里使用了一段vbo来个两个属性传递数据,其实也可以生成两个vbo,来分别给两个属性传递数据.虽然vbo数目变多了,但总内存大小不变,而且如果有低耦合的需求的话,也就是cpu端属性数据是分开的,这样可能逻辑可能更清晰点
 {% endnote %}
 
-如果你在哪儿卡住了，可以到[这里]((https://github.com/xiaoqide/note-code/blob/main/opengl-note/test_shader.cpp))查看源码。
+如果你在哪儿卡住了，可以到[这里]((https://github.com/ours1984/note-code/blob/main/opengl-note/test_shader.cpp))查看源码。
 
 我们只提供了3个颜色，却看到一个大调色板。这是在片段着色器中进行的所谓片段插值(Fragment Interpolation)的结果。这正是我们需要利用的gpu并行特性,给定关键点信息,其他位置自动生成.
 
@@ -295,4 +295,4 @@ glVertexAttribPointer函数的前几个参数比较明了。这次我们配置�
 
 ## 建立着色器类
 
-具体看代码就好了.如果你在哪儿卡住了，可以到[这里]((https://github.com/xiaoqide/note-code/blob/main/opengl-note/test_shader.cpp))查看源码。
+具体看代码就好了.如果你在哪儿卡住了，可以到[这里]((https://github.com/ours1984/note-code/blob/main/opengl-note/test_shader.cpp))查看源码。

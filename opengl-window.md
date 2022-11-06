@@ -88,11 +88,11 @@ add_subdirectory(src)
 
 在子目录里分别写好CMakeList.txt,就可以编译了
 
-关于cmake的使用,尤其是子项目的编写,可以参考博文[CMake从入门到入门](https://blog.ours1984.top/posts/cmake)
+关于cmake的使用,尤其是子项目的编写,可以参考博文[CMake从入门到入门](https://blog.ours1984.top/posts/cmake/)
 
 ## 你好窗口
 
-首先给出源码文件,参考[hellow-window](https://github.com/xiaoqide/note-code/blob/main/opengl-note/test_window.cpp).这里知识代码说明,单独运行不起来的.你需要下载整个项目才能跑起来
+首先给出源码文件,参考[hellow-window](https://github.com/ours1984/note-code/blob/main/opengl-note/test_window.cpp).这里知识代码说明,单独运行不起来的.你需要下载整个项目才能跑起来
 
 首先，我们在main函数中调用glfwInit函数来初始化GLFW，然后我们可以使用glfwWindowHint函数来配置GLFW。
 
@@ -137,4 +137,4 @@ glfwSwapBuffers函数会交换颜色缓冲（它是一个储存着GLFW窗口每�
 
 我们在渲染循环的每一个迭代中调用processInput.再做自己的渲染操作.现在你啥都不会,所以我们调用api来清屏吧,设置屏幕颜色
 
-如果你看见了一个非常无聊的窗口，那么就对了！如果你没得到正确的结果，或者你不知道怎么把所有东西放到一起，可以去github上下载配套项目<https://github.com/xiaoqide/note-code>
+如果你看见了一个非常无聊的窗口，那么就对了！如果你没得到正确的结果，或者你不知道怎么把所有东西放到一起，可以去github上下载配套项目<https://github.com/ours1984/note-code>
